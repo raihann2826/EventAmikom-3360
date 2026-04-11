@@ -1,6 +1,8 @@
 Tugas 1 <br>
 NAMA MUH. RAIHAN <br>
-Nim : 24.12.3360
+Nim : 24.12.3360 <br>
+link : https://eventamikom-3360-main-dfolbq.free.laravel.cloud/kontak
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
