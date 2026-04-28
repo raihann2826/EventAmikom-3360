@@ -1,7 +1,7 @@
 Tugas 1 <br>
 NAMA MUH. RAIHAN <br>
 Nim : 24.12.3360 <br>
-link : https://eventamikom-3360-main-dfolbq.free.laravel.cloud/kontak
+link : https://eventamikom-3360-main-dfolbq.free.laravel.cloud/kontak <br>
 link 2 : https://eventamikom-3360-main-dfolbq.free.laravel.cloud/
 
 
