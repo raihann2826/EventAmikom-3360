@@ -3,7 +3,7 @@ NIM: 24.12.3360
 Nama: Muh.Raihan
 
 # Laravel Cloud
-Tugas 1 : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/
+Tugas 1 : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/)
 
 # Tugas 1
 Home : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/
