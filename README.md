@@ -8,19 +8,19 @@ Tugas 1 : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/](https://eve
 # Tugas 1
 Home : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/
 
-Profil : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/profil
+Profil : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/profil](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/profil)
 
-Katalog : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/katalog
+Katalog :[ https://eventamikom-3360-main-oakxz4.free.laravel.cloud/katalog](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/katalog)
 
-Bantuan : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/bantuan
+Bantuan : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/bantuan](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/bantuan)
 
-Kontak : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/kontak
+Kontak : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/kontak](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/kontak)
 
 # Tugas 2 
 
-Admin : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/admin
+Admin : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/admin](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/admin)
 
-User : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/home
+User : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/home](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/home)
 
 # Tugas 3
 Menambahkan database migration/seeding
@@ -28,10 +28,10 @@ Menambahkan database migration/seeding
 # Tugas 4
 ELOQUENT ORM & CRUD
 Halaman Admin : 
-Dashboard Admin : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/admin
-
+Dashboard Admin : [https://eventamikom-3360-main-oakxz4.free.laravel.cloud/admin](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/admin)
+Laporan Transaksi : https://eventamikom-3360-main-dfolbq.free.laravel.cloud/admin/transactions
 Halaman User : 
-https://eventamikom-3360-main-oakxz4.free.laravel.cloud/home
+[https://eventamikom-3360-main-oakxz4.free.laravel.cloud/home](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/home)
 
 User : https://eventamikom-3360-main-oakxz4.free.laravel.cloud/home
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
