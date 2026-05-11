@@ -26,12 +26,12 @@
         <div class="bg-slate-50/80 p-8 rounded-2xl border border-slate-100 max-w-lg mx-auto text-center flex flex-col gap-6 shadow-sm">
             <div>
                 <p class="text-sm text-slate-400 font-semibold uppercase tracking-wider">Nama Lengkap</p>
-                <p class="text-3xl font-bold text-indigo-900 mt-2">Wijdan Ula Rizki</p>
+                <p class="text-3xl font-bold text-indigo-900 mt-2">Muh.Raihan</p>
             </div>
             <div class="w-24 h-1 bg-indigo-100 mx-auto rounded-full"></div>
             <div>
                 <p class="text-sm text-slate-400 font-semibold uppercase tracking-wider">Nomor Induk Mahasiswa</p>
-                <p class="text-3xl font-bold text-indigo-900 mt-2">24.12.3335</p>
+                <p class="text-3xl font-bold text-indigo-900 mt-2">24.12.3360</p>
             </div>
         </div>
     </div>

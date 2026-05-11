@@ -40,8 +40,8 @@ Route::get('/bantuan', function () {
 // Halaman Default (Tugas Lama) - tetap seperti aslinya
 Route::get('/', function () {
     return view('welcome', [
-        'nama' => 'Wijdan Ula Rizki',
-        'nim'  => '24.12.3335',
+        'nama' => 'Muh.Raihan',
+        'nim'  => '24.12.3360',
     ]);
 });
 
