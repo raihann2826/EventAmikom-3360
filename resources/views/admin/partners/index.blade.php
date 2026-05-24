@@ -68,7 +68,11 @@
                     <td class="px-8 py-6">
                         <div class="w-14 h-14 rounded-xl bg-slate-100 border flex items-center justify-center overflow-hidden">
                             @if($partner->logo_url)
-                                <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}" class="object-contain w-full h-full p-1"
+                                @php
+                                    $isUrl = filter_var($partner->logo_url, FILTER_VALIDATE_URL);
+                                    $logoSrc = $isUrl ? $partner->logo_url : asset('storage/' . $partner->logo_url);
+                                @endphp
+                                <img src="{{ $logoSrc }}" alt="{{ $partner->name }}" class="object-contain w-full h-full p-1"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <span class="hidden text-[10px] font-bold text-slate-400 text-center leading-tight p-1">NO LOGO</span>
                             @else
@@ -100,7 +104,10 @@
                     <td class="px-8 py-6">
                         <div class="flex gap-2">
                             {{-- Tombol Edit --}}
-                            <button onclick="openEditModal('{{ $partner->id }}', '{{ addslashes($partner->name) }}', '{{ $partner->logo_url }}', '{{ $partner->email }}', '{{ $partner->phone }}', '{{ $partner->website }}')"
+                            @php
+                                $editLogoSrc = $partner->logo_url ? (filter_var($partner->logo_url, FILTER_VALIDATE_URL) ? $partner->logo_url : asset('storage/' . $partner->logo_url)) : '';
+                            @endphp
+                            <button onclick="openEditModal('{{ $partner->id }}', '{{ addslashes($partner->name) }}', '{{ $editLogoSrc }}', '{{ $partner->email }}', '{{ $partner->phone }}', '{{ $partner->website }}')"
                                     class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition" title="Edit">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
@@ -155,7 +162,7 @@
                 </svg>
             </button>
         </div>
-        <form action="{{ route('admin.partners.store') }}" method="POST">
+        <form action="{{ route('admin.partners.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="space-y-4 mb-6">
                 <div>
@@ -164,14 +171,14 @@
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition text-sm">
                 </div>
                 <div>
-                    <label for="add_logo_url" class="block text-sm font-bold text-slate-700 mb-1.5">URL Logo</label>
-                    <input type="url" id="add_logo_url" name="logo_url" placeholder="https://example.com/logo.png"
+                    <label for="add_logo" class="block text-sm font-bold text-slate-700 mb-1.5">Upload Logo</label>
+                    <input type="file" id="add_logo" name="logo" accept="image/*"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition text-sm"
-                           oninput="previewLogo(this.value, 'add_logo_preview')">
+                           onchange="previewFile(this, 'add_logo_preview')">
                     <div id="add_logo_preview" class="mt-2 hidden">
                         <img src="" alt="Preview logo" class="h-12 object-contain rounded-lg border border-slate-200 p-1">
                     </div>
-                    <p class="text-xs text-slate-400 mt-1">Masukkan URL gambar logo partner (contoh: https://upload.wikimedia.org/...)</p>
+                    <p class="text-xs text-slate-400 mt-1">Format: JPG, PNG, WEBP, SVG (Max: 2MB). Kosongkan jika tidak ada logo.</p>
                 </div>
                 <div>
                     <label for="add_email" class="block text-sm font-bold text-slate-700 mb-1.5">Email Kontak</label>
@@ -208,7 +215,7 @@
                 </svg>
             </button>
         </div>
-        <form id="editForm" method="POST">
+        <form id="editForm" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="space-y-4 mb-6">
@@ -218,13 +225,14 @@
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition text-sm">
                 </div>
                 <div>
-                    <label for="edit_logo_url" class="block text-sm font-bold text-slate-700 mb-1.5">URL Logo</label>
-                    <input type="url" id="edit_logo_url" name="logo_url" placeholder="https://example.com/logo.png"
+                    <label for="edit_logo" class="block text-sm font-bold text-slate-700 mb-1.5">Upload Logo (Baru)</label>
+                    <input type="file" id="edit_logo" name="logo" accept="image/*"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition text-sm"
-                           oninput="previewLogo(this.value, 'edit_logo_preview')">
+                           onchange="previewFile(this, 'edit_logo_preview')">
                     <div id="edit_logo_preview" class="mt-2 hidden">
                         <img src="" alt="Preview logo" class="h-12 object-contain rounded-lg border border-slate-200 p-1">
                     </div>
+                    <p class="text-xs text-slate-400 mt-1">Abaikan jika tidak ingin mengganti logo yang sudah ada.</p>
                 </div>
                 <div>
                     <label for="edit_email" class="block text-sm font-bold text-slate-700 mb-1.5">Email Kontak</label>
@@ -260,17 +268,20 @@
 
     function openEditModal(id, name, logoUrl, email, phone, website) {
         document.getElementById('edit_name').value = name;
-        document.getElementById('edit_logo_url').value = logoUrl || '';
+        document.getElementById('edit_logo').value = ''; // Reset input file
         document.getElementById('edit_email').value = email || '';
         document.getElementById('edit_phone').value = phone || '';
         document.getElementById('edit_website').value = website || '';
         document.getElementById('editForm').action = "{{ url('admin/partners') }}/" + id;
 
         // Show logo preview if URL exists
+        const container = document.getElementById('edit_logo_preview');
+        const img = container.querySelector('img');
         if (logoUrl) {
-            previewLogo(logoUrl, 'edit_logo_preview');
+            img.src = logoUrl;
+            container.classList.remove('hidden');
         } else {
-            document.getElementById('edit_logo_preview').classList.add('hidden');
+            container.classList.add('hidden');
         }
 
         document.getElementById('editModal').classList.remove('hidden');
@@ -279,12 +290,17 @@
         document.getElementById('editModal').classList.add('hidden');
     }
 
-    function previewLogo(url, previewId) {
+    function previewFile(input, previewId) {
         const container = document.getElementById(previewId);
         const img = container.querySelector('img');
-        if (url) {
-            img.src = url;
-            container.classList.remove('hidden');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                img.src = e.target.result;
+                container.classList.remove('hidden');
+            }
+            reader.readAsDataURL(input.files[0]);
         } else {
             container.classList.add('hidden');
         }
