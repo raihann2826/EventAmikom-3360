@@ -1,7 +1,7 @@
 tugas1
 
-Nama : Muhammad Faqih Anshori
-Nim : 24.12.3351
+Nama : muh.raihan
+Nim : 24.12.3360
 Kelas : 24SI05
 
 Link cloud : https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/

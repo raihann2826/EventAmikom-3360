@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - @yield('title', 'AmikomEventHub')</title>
+    <title>Admin - @yield('title', 'EventSpace 3360')</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Outfit', sans-serif; }</style>
 </head>
-<body class="bg-slate-50 text-slate-900 flex min-h-screen">
+<body class="bg-gray-50 text-gray-800 flex min-h-screen">
 
     <!-- SIDEBAR -->
-    <aside class="w-64 bg-indigo-900 text-indigo-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
+    <aside class="w-64 bg-purple-900 text-purple-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-900 font-bold text-xl">AH</div>
-            <span class="text-xl font-bold text-white tracking-tight">AmikomEventHub</span>
+            <div class="w-10 h-10 bg-white rounded-md flex items-center justify-center text-purple-900 font-bold text-xl">ES</div>
+            <span class="text-xl font-bold text-white tracking-tight">EventSpace 3360</span>
         </div>
 
         <nav class="flex-1 space-y-2">
-            <p class="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-4 px-2">Main Menu</p>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-purple-400 mb-4 px-2">Main Menu</p>
 
             <a href="{{ route('admin.dashboard') }}"
-               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800 text-indigo-200' }} rounded-xl font-bold transition">
+               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-purple-800 text-white' : 'hover:bg-purple-800 text-purple-200' }} rounded-md font-bold transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
                 </svg>
@@ -29,7 +29,7 @@
             </a>
 
             <a href="{{ route('admin.events.index') }}"
-               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.events.*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800 text-indigo-200' }} rounded-xl font-bold transition">
+               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.events.*') ? 'bg-purple-800 text-white' : 'hover:bg-purple-800 text-purple-200' }} rounded-md font-bold transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
@@ -37,8 +37,8 @@
             </a>
 
             <a href="{{ route('admin.transactions.index') }}"
-               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.transactions.*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800 text-indigo-200' }} rounded-xl font-bold transition">
-                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="flex items-center gap-3 px-4 py-3 {{ request()->routeIs('admin.transactions.*') ? 'bg-purple-800 text-white' : 'hover:bg-purple-800 text-purple-200' }} rounded-md font-bold transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                 </svg>
                 Laporan Transaksi
@@ -46,28 +46,19 @@
         </nav>
 
         <form action="{{ route('admin.logout') }}" method="POST">
-@csrf
-<button type="submit"
-class="w-full flex items-center gap-3 px-4 py-3 text-indigo-300
-hover:text-white transition font-medium text-left">
-<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0
-0 24 24">
+            @csrf
+            <button type="submit"
+                    class="w-full flex items-center gap-3 px-4 py-3 text-purple-300 hover:text-white transition font-medium text-left">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Keluar
+            </button>
+        </form>
 
-<path stroke-linecap="round" stroke-linejoin="round" stroke-
-width="2"
-
-d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0
-01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-</path>
-</svg>
-Keluar
-</button>
-</form>
-</div>
-
-        <div class="pt-6 border-t border-indigo-800">
+        <div class="pt-6 border-t border-purple-800">
             <a href="{{ route('home') }}"
-               class="flex items-center gap-3 px-4 py-3 text-indigo-300 hover:text-white transition font-medium">
+               class="flex items-center gap-3 px-4 py-3 text-purple-300 hover:text-white transition font-medium">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
                 </svg>
@@ -81,23 +72,23 @@ Keluar
 
         <header class="flex justify-between items-center mb-10">
             <div>
-                <h1 class="text-3xl font-black">@yield('page_title', 'Dashboard')</h1>
-                <p class="text-slate-500 font-medium">@yield('page_subtitle', 'Selamat datang kembali, Admin!')</p>
+                <h1 class="text-3xl font-black text-gray-900">@yield('page_title', 'Dashboard')</h1>
+                <p class="text-gray-500 font-medium">@yield('page_subtitle', 'Selamat datang kembali, Admin!')</p>
             </div>
             <div class="flex items-center gap-4">
                 <div class="text-right hidden md:block">
-                    <p class="font-bold">Admin AMIKOM</p>
-                    <p class="text-xs text-slate-400">Penyelenggara Utama</p>
+                    <p class="font-bold text-gray-800">Admin EventSpace</p>
+                    <p class="text-xs text-gray-400">Penyelenggara Utama</p>
                 </div>
-                <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border flex items-center justify-center p-1">
-                    <img src="https://ui-avatars.com/api/?name=Admin&background=6366f1&color=fff" class="rounded-xl">
+                <div class="w-12 h-12 bg-white rounded-md shadow-sm border flex items-center justify-center p-1">
+                    <img src="https://ui-avatars.com/api/?name=Raihan&background=059669&color=fff" class="rounded-sm">
                 </div>
             </div>
         </header>
 
         @if(session('success'))
-            <div class="bg-green-100 border border-green-200 text-green-800 p-4 rounded-2xl mb-6 font-semibold text-sm flex items-center gap-2">
-                <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-purple-100 border border-purple-200 text-purple-800 p-4 rounded-md mb-6 font-semibold text-sm flex items-center gap-2">
+                <svg class="w-5 h-5 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 {{ session('success') }}
