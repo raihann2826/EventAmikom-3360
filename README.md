@@ -30,14 +30,14 @@ Halaman Checkout : https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/chec
 
 Tugas 3
 
-https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin
+[https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/login)
 
 Tugas 4
 
-https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin
+[https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/login)
 
 Tugas 8
-https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin/login
+[https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin/login](https://eventamikom-3360-main-dfolbq.free.laravel.cloud/login)
 
 Tugas 10
 https://eventamikomm-3351-main-6hqtao.free.laravel.cloud/admin/transactions
